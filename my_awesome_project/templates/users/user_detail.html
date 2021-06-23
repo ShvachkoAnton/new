@@ -13,6 +13,13 @@
       {% if object.name %}
         <p>{{ object.name }}</p>
       {% endif %}
+      {% if object.bio %}
+        <p>{{object.bio}}</p>
+
+      {% endif %}
+
+
+
     </div>
   </div>
 
@@ -27,8 +34,11 @@
   </div>
 
 </div>
+
 <!-- End Action buttons -->
 {% endif %}
+
+
 
 </div>
 {% endblock content %}
