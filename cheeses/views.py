@@ -8,4 +8,8 @@ class CheeseListView(ListView):
     template_name="cheeses/cheeses.html"
     context_object_name="cheeses"
 
+
+class CheeseDetailView(DetailView):
+    model=Cheese
+    template_name="cheeses/cheese_detail.html"
 # Create your views here.
