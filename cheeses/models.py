@@ -1,5 +1,6 @@
 import autoslug
 from django.db import models
+from django.http.response import HttpResponse, HttpResponsePermanentRedirect
 from model_utils.models import TimeStampedModel
 from autoslug import AutoSlugField
 
@@ -27,3 +28,7 @@ class Cheese(TimeStampedModel):
 
     def __str__(self):
         return self.name
+
+
+
+
