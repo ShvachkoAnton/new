@@ -4,7 +4,7 @@ from django.http.response import HttpResponse, HttpResponsePermanentRedirect
 from model_utils.models import TimeStampedModel
 from autoslug import AutoSlugField
 from django_countries.fields import CountryField
-
+from django.urls import reverse
 
 class Cheese(TimeStampedModel):
     name = models.CharField("Name of Cheese", max_length=255)
@@ -31,4 +31,7 @@ class Cheese(TimeStampedModel):
     def __str__(self):
         return self.name
 
+    def get_absolute_url(self):
 
+
+        return reverse('detail',kwargs={"slug": self.slug})
