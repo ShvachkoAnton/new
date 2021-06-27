@@ -21,3 +21,7 @@ class CheeseCreateView(LoginRequiredMixin, CreateView):
     model = Cheese
     template_name = "cheeses/create.html"
     fields = ['name', 'description', 'firmness', 'country_of_origin']
+    def form_valid(self,form):
+        form.instance.creator=self.request.user
+        return super().form_valid(form)
+    
