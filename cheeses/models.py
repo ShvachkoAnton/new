@@ -6,14 +6,16 @@ from autoslug import AutoSlugField
 from django_countries.fields import CountryField
 from django.urls import reverse
 
+
 class Cheese(TimeStampedModel):
     name = models.CharField("Name of Cheese", max_length=255)
     slug = AutoSlugField(
         "Cheese Adress", unique=True, always_update=False, populate_from="name"
     )
-    
+
     description = models.TextField("Description", blank=True)
-    country_of_origin=CountryField("Country of origin", blank=True)
+    country_of_origin = CountryField("Country of origin", blank=True)
+
     class Firmness(models.TextChoices):
         UNSPECIFIED = "unspecified", "Unspecified"
         SOFT = "soft", "Soft"
@@ -33,5 +35,4 @@ class Cheese(TimeStampedModel):
 
     def get_absolute_url(self):
 
-
-        return reverse('detail',kwargs={"slug": self.slug})
+        return reverse('detail', kwargs={"slug": self.slug})
