@@ -1,6 +1,7 @@
 from django.template.defaultfilters import slugify
 import factory
 import factory.fuzzy
+from my_awesome_project.users.tests.factories import UserFactory
 from cheeses.models import Cheese
 class CheeseFactory(factory.django.DjangoModelFactory):
     name = factory.fuzzy.FuzzyText()
@@ -11,5 +12,8 @@ class CheeseFactory(factory.django.DjangoModelFactory):
     )
     class Meta:
         model = Cheese
+    creator = factory.SubFactory(UserFactory)
+
     
+
     
