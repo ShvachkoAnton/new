@@ -26,7 +26,17 @@
     <p>{{ cheese.creator.name }}</p>
 
 
+<p>
+<a class="btn btn-primary"
+href="{% url 'update' cheese.slug %}"
+role="button"
+
+>
+    Update
+</a>
+</p>
 {% endif %}
+
 {% endblock content %}
 
 
