@@ -3,6 +3,13 @@ import factory
 import factory.fuzzy
 from my_awesome_project.users.tests.factories import UserFactory
 from cheeses.models import Cheese
+import pytest
+
+
+@pytest.fixture
+def cheese():
+    return CheeseFactory()
+
 class CheeseFactory(factory.django.DjangoModelFactory):
     name = factory.fuzzy.FuzzyText()
     slug = factory.LazyAttribute(lambda obj: slugify(obj.name))
